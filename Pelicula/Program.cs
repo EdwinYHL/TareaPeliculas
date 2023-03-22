@@ -7,38 +7,38 @@ namespace Pelicula
     public class Pelicula
     {
         //Campos
-        private string title{get; set;}
-        private Int16 year{get; set;}
+        private string titulo{get; set;}
+        private Int16 año{get; set;}
         private string countries{get; set;}
         private string directedby{get; set;}
         //Constructores
         public Pelicula(){}
-        public Pelicula(string title, Int16 year)
+        public Pelicula(string titulo, Int16 año)
         {
-            this.year=year;
-            this.title=title;
+            this.año=año;
+            this.titulo=titulo;
         }
         //Métodos
-        public void SetTitle(string title)
-        {this.title=title;}
-        public string getTitle()
-        {return this.title;}
-        public void SetYear(Int16 year)
-        {this.year=year;}
-        public Int16 getYear()
-        {return this.year;}
+        public void SetTitulo(string titulo)
+        {this.titulo=titulo;}
+        public string GetTitulo()
+        {return this.titulo;}
+        public void SetAño(Int16 año)
+        {this.año=año;}
+        public Int16 GetAño()
+        {return this.año;}
         public void Imprime()
         {
-            Console.WriteLine($"{title} ({year})");
+            Console.WriteLine($"{titulo} ({año})");
         }
-        private List<Actor> actors = new List<Actor>();
-        public void AddActor(Actor actor)
+        private List<Actor> actores = new List<Actor>();
+        public void AgregaActor(Actor actor)
         {
-            actors.Add(actor);
+            actores.Add(actor);
         }
-        public void printActors()
+        public void ImprimeActores()
         {
-            foreach (Actor actor in actors)
+            foreach (Actor actor in actores)
             {
                 actor.Imprime();
             }
@@ -47,17 +47,17 @@ namespace Pelicula
     public class Actor
     {
         //Propiedades
-        private string name{ get; set; }
-        private Int16 year{ get; set; }
-        public Actor(string name, Int16 year)
+        private string nombre{ get; set; }
+        private Int16 año{ get; set; }
+        public Actor(string nombre, Int16 año)
         {
-            this.name = name;
-            this.year = year;
+            this.nombre = nombre;
+            this.año = año;
         }
         //Métodos 
         public void Imprime()
         {
-            Console.WriteLine($"{name} ({year})");
+            Console.WriteLine($"{nombre} ({año})");
         }
         
     }
@@ -70,23 +70,23 @@ namespace Pelicula
         static void Main(string[] args)
         {
             Pelicula movie1 = new Pelicula();
-            movie1.SetTitle("Birdman");
-            movie1.SetYear(2014);
-            movie1.AddActor(new Actor("Michael Keaton", 1951));
-            movie1.AddActor(new Actor("Edward Norton", 1969));
+            movie1.SetTitulo("Birdman");
+            movie1.SetAño(2014);
+            movie1.AgregaActor(new Actor("Michael Keaton", 1951));
+            movie1.AgregaActor(new Actor("Edward Norton", 1969));
             Pelicula movie2 = new Pelicula();
-            movie2.SetTitle("Guillermo del Toro's Pinocchio");
-            movie2.SetYear(2022);
-            movie2.AddActor(new Actor("Gregory Mann", 2008));
-            movie2.AddActor(new Actor("David Bradley", 1942));
+            movie2.SetTitulo("Guillermo del Toro's Pinocchio");
+            movie2.SetAño(2022);
+            movie2.AgregaActor(new Actor("Gregory Mann", 2008));
+            movie2.AgregaActor(new Actor("David Bradley", 1942));
             Console.Write("First Movie: ");
             movie1.Imprime();
             Console.Write("Starring: ");
-            movie1.printActors();
+            movie1.ImprimeActores();
             Console.Write("Second Movie: ");
             movie2.Imprime();
             Console.Write("Starring: ");
-            movie2.printActors();
+            movie2.ImprimeActores();
         }
     }
 }
