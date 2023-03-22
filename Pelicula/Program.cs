@@ -72,11 +72,21 @@ namespace Pelicula
             Pelicula movie1 = new Pelicula();
             movie1.SetTitle("Birdman");
             movie1.SetYear(2014);
+            movie1.AddActor(new Actor("Michael Keaton", 1951));
+            movie1.AddActor(new Actor("Edward Norton", 1969));
             Pelicula movie2 = new Pelicula();
             movie2.SetTitle("Guillermo del Toro's Pinocchio");
             movie2.SetYear(2022);
+            movie2.AddActor(new Actor("Gregory Mann", 2008));
+            movie2.AddActor(new Actor("David Bradley", 1942));
+            Console.Write("First Movie: ");
             movie1.Imprime();
+            Console.Write("Starring: ");
+            movie1.printActors();
+            Console.Write("Second Movie: ");
             movie2.Imprime();
+            Console.Write("Starring: ");
+            movie2.printActors();
         }
     }
 }
