@@ -23,7 +23,7 @@ namespace Pelicula
         {this.title=title;}
         public string getTitle()
         {return this.title;}
-        public void SetYear(short year)
+        public void SetYear(Int16 year)
         {this.year=year;}
         public Int16 getYear()
         {return this.year;}
