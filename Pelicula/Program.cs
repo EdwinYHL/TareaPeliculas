@@ -8,15 +8,12 @@ namespace Pelicula
     {
         //Campos
         private string title{get; set;}
-        private short year{get; set;}
+        private Int16 year{get; set;}
         private string countries{get; set;}
         private string directedby{get; set;}
-
-        private List<Actor> actores = new List<Actor>();
-
         //Constructores
         public Pelicula(){}
-        public Pelicula(string title, short year)
+        public Pelicula(string title, Int16 year)
         {
             this.year=year;
             this.title=title;
@@ -28,29 +25,41 @@ namespace Pelicula
         {return this.title;}
         public void SetYear(short year)
         {this.year=year;}
-        public short getYear()
+        public Int16 getYear()
         {return this.year;}
         public void Imprime()
         {
             Console.WriteLine($"{title} ({year})");
-
         }
-
-
+        private List<Actor> actors = new List<Actor>();
+        public void AddActor(Actor actor)
+        {
+            actors.Add(actor);
+        }
+        public void printActors()
+        {
+            foreach (Actor actor in actors)
+            {
+                actor.Imprime();
+            }
+        }
     }
-
     public class Actor
     {
         //Propiedades
-
-        //Constructores
-
-
+        private string name{ get; set; }
+        private Int16 year{ get; set; }
+        public Actor(string name, Int16 year)
+        {
+            this.name = name;
+            this.year = year;
+        }
         //Métodos 
         public void Imprime()
         {
-           // Console.WriteLine($"{title} ({year})");
+            Console.WriteLine($"{name} ({year})");
         }
+        
     }
 
     // Puedes probar tu código en Main() pero lo importante
@@ -58,14 +67,16 @@ namespace Pelicula
 
     class Program
     {
-
-
         static void Main(string[] args)
         {
-        Pelicula p1 = new Pelicula();
-        p1.SetTitle("Birdman");
-        p1.SetYear(2014);
-        Console.WriteLine("{0}({1})", p1.getTitle(), p1.getYear());
+            Pelicula movie1 = new Pelicula();
+            movie1.SetTitle("Birdman");
+            movie1.SetYear(2014);
+            Pelicula movie2 = new Pelicula();
+            movie2.SetTitle("Guillermo del Toro's Pinocchio");
+            movie2.SetYear(2022);
+            movie1.Imprime();
+            movie2.Imprime();
         }
     }
 }
