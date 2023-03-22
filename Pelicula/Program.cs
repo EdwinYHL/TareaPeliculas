@@ -7,28 +7,32 @@ namespace Pelicula
     public class Pelicula
     {
         //Campos
-        public string titulo;
-        public short año;
-        public string pais;
-        public string director;
+        private string title{get; set;}
+        private short year{get; set;}
+        private string countries{get; set;}
+        private string directedby{get; set;}
 
         private List<Actor> actores = new List<Actor>();
 
         //Constructores
-        public Pelicula()
+        public Pelicula(){}
+        public Pelicula(string title, short year)
         {
-            titulo = "Birdman";
-            año = 2014;
-            pais = "EE.UU";
-            director = "Alejandro González Iñárritu";
+            this.year=year;
+            this.title=title;
         }
-        
-     
         //Métodos
-     
+        public void SetTitle(string title)
+        {this.title=title;}
+        public string getTitle()
+        {return this.title;}
+        public void SetYear(short year)
+        {this.year=year;}
+        public short getYear()
+        {return this.year;}
         public void Imprime()
         {
-           // Console.WriteLine($"{titulo} ({año})");
+            Console.WriteLine($"{title} ({year})");
 
         }
 
@@ -45,7 +49,7 @@ namespace Pelicula
         //Métodos 
         public void Imprime()
         {
-            //Console.WriteLine($"{Nombre} ({Año})");
+           // Console.WriteLine($"{title} ({year})");
         }
     }
 
@@ -58,12 +62,10 @@ namespace Pelicula
 
         static void Main(string[] args)
         {
-            Pelicula movie1 = new Pelicula();
-            Console.WriteLine ("Pelicula Ganadora: " + movie1.titulo + " Año: " + movie1.año);
-            Pelicula movie2 = new Pelicula();
-            movie2.titulo = "Guillermo del Toro's Pinocchio";
-            movie2.año = 2022;
-            Console.WriteLine ("Pelicula Ganadora: " + movie2.titulo + " Año: " + movie2.año);
+        Pelicula p1 = new Pelicula();
+        p1.SetTitle("Birdman");
+        p1.SetYear(2014);
+        Console.WriteLine("{0}({1})", p1.getTitle(), p1.getYear());
         }
     }
 }
